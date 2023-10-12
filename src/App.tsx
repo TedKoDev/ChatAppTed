@@ -143,7 +143,7 @@ export default function App() {
             {(props) => <Login {...props} setUser={setUser} />}
           </Stack.Screen>
         ) : (
-          <Stack.Screen name="LoggedIn">
+          <Stack.Screen name="Ted Chat APP">
             {(props) => <LoggedInScreen {...props} user={user} setUser={setUser} />}
           </Stack.Screen>
         )}
@@ -155,11 +155,11 @@ export default function App() {
 const LoggedInScreen: React.FC<{
   user: FirebaseAuthTypes.UserCredential
   setUser: React.Dispatch<React.SetStateAction<FirebaseAuthTypes.UserCredential | null>>
-}> = ({ setUser }) => {
+}> = ({ user, setUser }) => {
   return (
-    <Div flex={1} justifyContent="center" alignItems="center" bg="blue">
-      <Div>
-        <Text color="red">로그인 되었습니다 화면입니둥 </Text>
+    <Div flex={1} justifyContent="flex-start" alignItems="stretch">
+      <Div mb={50} p={10} justifyContent="space-between" row>
+        <Text fontSize={20}>UserName : {user.user.email}</Text>
         <Button
           onPress={() => {
             logout()
@@ -168,6 +168,9 @@ const LoggedInScreen: React.FC<{
         >
           로그아웃
         </Button>
+      </Div>
+      <Div>
+        <Text color="red">로그인 되었습니다 화면입니둥 </Text>
       </Div>
     </Div>
   )

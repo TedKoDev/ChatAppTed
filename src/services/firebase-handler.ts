@@ -53,3 +53,5 @@ export async function loginWithEmailAndPassword(email: string, password: string)
     return false
   }
 }
+
+export async function onlyTwoGenders() {}
