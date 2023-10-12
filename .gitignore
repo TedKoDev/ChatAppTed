@@ -64,3 +64,14 @@ yarn-error.log
 
 # testing
 /coverage
+
+# Ruby / CocoaPods
+/ios/Pods/
+/ios/builds/
+/vendor/bundle/
+
+# key protection
+google-services.json
+GoogleService-Info.plist
+#.editorconfig
+fastlane/credentials/

@@ -1,3 +1,7 @@
+#추가한거
+$FirebaseSDKVersion = '10.15.0' 
+
+
 # Resolve react_native_pods.rb with node to allow for hoisting
 require Pod::Executable.execute_command('node', ['-p',
   'require.resolve(
@@ -25,11 +29,15 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'ChatAppTed' do
+target 'tedchatapp' do
   config = use_native_modules!
 
   # Flags change depending on the env values.
   flags = get_default_flags()
+
+  # setting modular_headers
+  pod 'GoogleUtilities', :modular_headers => true
+  pod 'FirebaseCore', :modular_headers => true
 
   use_react_native!(
     :path => config[:reactNativePath],
@@ -40,12 +48,12 @@ target 'ChatAppTed' do
     #
     # Note that if you have use_frameworks! enabled, Flipper will not work and
     # you should disable the next line.
-    :flipper_configuration => flipper_config,
+    # :flipper_configuration => flipper_config, // 이거 제거
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'ChatAppTedTests' do
+  target 'tedchatappTests' do
     inherit! :complete
     # Pods for testing
   end
