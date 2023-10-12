@@ -129,29 +129,6 @@ const Login: React.FC<ILogin> = ({ setUser }) => {
   )
 }
 
-// 메인 App 컴포넌트를 정의합니다.
-export default function App() {
-  // 현재 로그인한 사용자의 상태를 관리합니다.
-  const [user, setUser] = useState<FirebaseAuthTypes.UserCredential | null>(null)
-
-  // 사용자가 로그인하지 않았으면 로그인 컴포넌트를 보여주고, 로그인했으면 사용자 정보를 보여줍니다.
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-        {!user ? (
-          <Stack.Screen name="Login">
-            {(props) => <Login {...props} setUser={setUser} />}
-          </Stack.Screen>
-        ) : (
-          <Stack.Screen name="Ted Chat APP">
-            {(props) => <MainScreen {...props} user={user} setUser={setUser} />}
-          </Stack.Screen>
-        )}
-      </Stack.Navigator>
-    </NavigationContainer>
-  )
-}
-
 const MainScreen: React.FC<{
   user: FirebaseAuthTypes.UserCredential
   setUser: React.Dispatch<React.SetStateAction<FirebaseAuthTypes.UserCredential | null>>
@@ -173,5 +150,28 @@ const MainScreen: React.FC<{
         <Text color="red">로그인 되었습니다 화면입니둥 </Text>
       </Div>
     </Div>
+  )
+}
+
+// 메인 App 컴포넌트를 정의합니다.
+export default function App() {
+  // 현재 로그인한 사용자의 상태를 관리합니다.
+  const [user, setUser] = useState<FirebaseAuthTypes.UserCredential | null>(null)
+
+  // 사용자가 로그인하지 않았으면 로그인 컴포넌트를 보여주고, 로그인했으면 사용자 정보를 보여줍니다.
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        {!user ? (
+          <Stack.Screen name="Login">
+            {(props) => <Login {...props} setUser={setUser} />}
+          </Stack.Screen>
+        ) : (
+          <Stack.Screen name="Ted Chat APP">
+            {(props) => <MainScreen {...props} user={user} setUser={setUser} />}
+          </Stack.Screen>
+        )}
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
