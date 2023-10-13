@@ -9,7 +9,7 @@ const SettingsScreen: React.FC = () => (
       <Button
         onPress={() => {
           logout()
-          setUser(null)
+          // setUser(null)
         }}
       >
         로그아웃
