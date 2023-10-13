@@ -26,6 +26,7 @@ export async function createUser(email: string) {
   } catch (error) {
     console.log('error =', error)
     console.log('test')
+    console.log('123')
     return false
   }
 }
