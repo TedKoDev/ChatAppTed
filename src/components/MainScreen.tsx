@@ -2,9 +2,9 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { FirebaseAuthTypes } from '@react-native-firebase/auth'
 
-import HomeScreen from '../screens/main-screens/HomeScreen'
-import ProfileScreen from '../screens/main-screens/ProfileScreen'
-import SettingsScreen from '../screens/main-screens/SettingsScreen'
+import HomeScreen from '../screens/main-screens/home-screen'
+import ProfileScreen from '../screens/main-screens/profile-screen'
+import SettingsScreen from '../screens/main-screens/settings-screen'
 
 const Tab = createBottomTabNavigator()
 

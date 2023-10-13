@@ -1,5 +1,7 @@
 import auth from '@react-native-firebase/auth'
-import firestore from '@react-native-firebase/firestore'
+import firestore, { FirebaseFirestoreTypes } from '@react-native-firebase/firestore'
+
+// { FirebaseFirestore }
 
 import COLLECTIONS from '../constants/collection-names'
 
@@ -51,5 +53,16 @@ export async function loginWithEmailAndPassword(email: string, password: string)
   } catch (error) {
     console.log('error =', error)
     return false
+  }
+}
+
+export async function onSnapshot(
+  collectionName: COLLECTIONS[number],
+  callback: (doc: FirebaseFirestoreTypes.DocumentSnapshot) => void,
+) {
+  try {
+    return firestore().collection(collectionName).onSnapshot(callback)
+  } catch (error) {
+    console.log('error =', error)
   }
 }
