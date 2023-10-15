@@ -41,17 +41,6 @@ export default function Navigator() {
     }
   })
 
-  // useEffect(() => {
-  //   // knock knock is anyone there???
-  //   const isThereUser = async () => {
-  //     const user = await Config.getUser()
-  //     if (user) login()
-  //     console.log('user =', user)
-  //     setIsReady(true)
-  //   }
-  //   isThereUser()
-  // })
-
   if (!isReady)
     return (
       <Div flex={1} alignItems="center" justifyContent="center">
@@ -61,18 +50,3 @@ export default function Navigator() {
 
   return <NavigationContainer>{!isLoggedIn ? <AuthStack /> : <BottomTabs />}</NavigationContainer>
 }
-
-/***
- *
- * $php_code       = include('php_code.php');
- * $php_user       = $php_code['user'];
- * $GET            = $REQUEST['GET'];
- * $params         = $GET['params'];
- *
- * $prepareExecute = prepare({
- * 'query'         => 'SELECT * FROM users WHERE id = ?',
- * 'types'         => 'i',
- * })
- *
- * $result         = execute($prepareExecute, $params);
- */
